@@ -1,0 +1,137 @@
+/* 
+/* === Tailwind v4 + Shadcn globals === */
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Dark variant helper */
+@custom-variant dark (&:is(.dark *));
+
+/* === Root Variables (Fallback + v4 OKLCH) === */
+:root {
+  /* --- Old HSL-based vars (shadcn-ui) --- */
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+  --primary: 346.8 77.2% 49.8%;
+  --primary-foreground: 355.7 100% 97.3%;
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --ring: 346.8 77.2% 49.8%;
+  --radius: 0.5rem;
+
+  /* --- New OKLCH-based vars (shadcn v4) --- */
+  --background: oklch(0.97 0.02 12.89);
+  --foreground: oklch(0.24 0.07 17.95);
+  --card: oklch(0.98 0.01 17.5);
+  --card-foreground: oklch(0.26 0.07 19.47);
+  --popover: oklch(0.98 0.01 17.5);
+  --popover-foreground: oklch(0.26 0.07 19.47);
+  --primary: oklch(0.67 0.22 21.22);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.95 0.02 10.3);
+  --secondary-foreground: oklch(0.24 0.07 17.95);
+  --muted: oklch(0.98 0.01 17.5);
+  --muted-foreground: oklch(0.26 0.07 19.47);
+  --accent: oklch(0.99 0 0);
+  --accent-foreground: oklch(0.43 0.13 20.48);
+  --destructive: oklch(0.8 0.17 73.59);
+  --border: oklch(0.91 0.05 10.24);
+  --input: oklch(0.9 0.05 11.99);
+  --ring: oklch(0.92 0.04 12.26);
+
+  /* Extra design tokens */
+  /* --font-sans: Barlow;
+  --font-serif: Merriweather;
+  --font-mono: JetBrains Mono;
+  --radius: 0rem; */
+
+  /* Shadows */
+  --shadow-sm: 0px 1px 2px -1px oklch(0.3 0.09 19.6 / 0.08);
+  --shadow-md: 0px 2px 4px -1px oklch(0.3 0.09 19.6 / 0.08);
+  --shadow-lg: 0px 4px 6px -1px oklch(0.3 0.09 19.6 / 0.08);
+  --shadow-xl: 0px 8px 10px -1px oklch(0.3 0.09 19.6 / 0.08);
+  --shadow-2xl: 0px 1px 3px oklch(0.3 0.09 19.6 / 0.2);
+}
+
+/* === Dark Mode === */
+.dark {
+  --background: oklch(0.16 0.03 16.52);
+  --foreground: oklch(0.99 0 0);
+  --card: oklch(0.21 0.05 18.42);
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.26 0.07 19.47);
+  --popover-foreground: oklch(0.99 0 0);
+  --primary: oklch(0.67 0.22 21.22);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.3 0.09 19.6);
+  --secondary-foreground: oklch(0.95 0.02 10.3);
+  --muted: oklch(0.26 0.07 19.47);
+  --muted-foreground: oklch(0.99 0 0);
+  --accent: oklch(0.43 0.13 20.48);
+  --accent-foreground: oklch(0.99 0 0);
+  --destructive: oklch(0.8 0.17 73.59);
+  --border: oklch(0.31 0.09 19.47);
+  --input: oklch(0.39 0.12 20.38);
+  --ring: oklch(0.5 0.16 20.99);
+}
+
+/* === Theme Mapping (Tailwind v4 syntax) === */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* === Base Layer === */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* === Utilities === */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
