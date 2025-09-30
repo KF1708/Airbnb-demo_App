@@ -6,6 +6,7 @@ export async function GET() {
   const { getUser } = getKindeServerSession();
 
   const user = await getUser();
+  console.log(user);
 
   if (!user || user === null || !user.id) {
     throw new Error("Something went wrong, i am srorry....");
